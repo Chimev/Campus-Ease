@@ -1,0 +1,74 @@
+@import '../../responsive.scss';
+
+.homepage{
+    // background-color: aqua;
+    
+    .hero{
+        background-image: linear-gradient(360deg, #39363699, #39363651), url('./hero.jpg');
+        background-position: 100% 20%;
+        background-size: cover;
+        background-attachment: scroll;
+        height: calc(100vh - 80px);
+        color: var(--white);
+        display: grid;
+        place-items: center;
+        margin-bottom: 70px;
+
+        .wrapper{
+            max-width: 90%;
+            text-align: center;
+            // font-size: 1.3em;
+
+            @include sm {
+                max-width: 90%;
+                text-align: center;
+                font-size: 1em;
+            }
+        }
+
+        @include sm {
+            height: 350px;
+        }
+    }
+
+    .category-section{
+        padding-top: 20px;
+        .wrapper{
+            width: 96%;
+            margin: auto;
+            padding-bottom: 25px;
+
+            hr{
+                background-color: var(--orange);
+                border: none;
+                height: 7px;
+                width: 90px;
+                margin: auto;
+            }
+
+            h2{
+                margin: 0 0 40px;
+                text-align: center;
+                position: relative;
+                font-size: 2em;
+
+                
+                  
+                @include sm{
+                    font-size: 1.9em;
+                }
+            }
+
+            .categories{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+
+                @include sm{
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

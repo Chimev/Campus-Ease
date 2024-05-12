@@ -1,0 +1,12 @@
+@import '../../responsive.scss';
+
+.layout{
+    height: 100vh;
+
+    @include md{
+        // background-color: blue;
+    }
+    @include sm{
+        // background-color: red;
+    }
+}

@@ -1,0 +1,54 @@
+
+@import "../../responsive.scss";
+
+.profile-container{
+    display: flex;
+    gap: 10px;
+    height: calc(90vh - 80px);
+    padding-top: 20px;
+
+    @include sm{
+        flex-direction: column;
+        padding-left: 18px;
+    }
+
+    a{
+        color: var(--grey);
+        padding: 10px;
+
+        &.active{
+            color: var(--orange);
+        }
+    }
+    
+
+
+    .left{
+        background-color: var(--white);
+        flex: 30%;
+
+        .menu{
+            border: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            font-size: 1.2em;
+            font-weight: 100;
+
+            padding: 20px 20px;
+
+            div{
+                font-size: 0.9em;
+                padding: 5px 10px ;
+                background-color: var(--orange);
+                width: fit-content;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+    .right{
+        padding-top: 25px;
+        flex: 70%;
+    }
+}

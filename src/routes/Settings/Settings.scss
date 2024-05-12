@@ -1,0 +1,29 @@
+.settings{
+    form{
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: var(--grey);
+    
+        h3{
+            font-size: 1.85rem;
+            font-weight: 700;
+        }
+    
+        input{
+            width: 80%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background-color: var(--light-grey);
+        }
+        span{
+            color: var(--orange);
+            cursor: pointer;
+            font-weight: 100;
+            font-size: 0.8rem;
+        }
+    
+    }
+}
