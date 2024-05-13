@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-@import './responsive.scss';
+
 :root{
     --white: #fff;
     --blue: rgb(11, 11, 247);
@@ -29,12 +29,7 @@
     // --font-base: "DM Sans", sans-serif;
 }
 body{
-    overflow-x: hidden;
-
-    @include sm{
-        overflow-x: hidden;
-    }
-    
+    overflow-x: hidden;    
 }
 
 a{
