@@ -9,6 +9,15 @@ const SchoolContextProvider = ({children}) => {
     const [campus, setCampus] = useState('--Campus--');
     const [ institutions, setInstitutions] = useState([]);
     const [campuses, setCampuses] = useState([]);
+    const [filter_1, setFilter_1] = useState({
+        min: '',
+        max: '',
+        accommodationType: "",
+        service: "",
+        property: "",
+        level: "",
+        gender: ""
+    })
 
     const value = {
         type,
@@ -20,7 +29,9 @@ const SchoolContextProvider = ({children}) => {
         institutions,
         setInstitutions,
         campuses,
-        setCampuses
+        setCampuses,
+        filter_1,
+        setFilter_1
     }
 
     return (

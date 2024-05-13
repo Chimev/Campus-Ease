@@ -21,7 +21,7 @@ const SearchInstitute = ({ type, setType, institution, setInstitution, campus, s
 
   return (
     <>
-        <select name="type" value={type} onChange={changeType}>
+    <select name="type" value={type} onChange={changeType}>
         <option value="">--Institution-Type--</option>
         {ListOfInstitutions.map((type) => (
             <option key={type.type} value={type.type}>{type.type}</option>

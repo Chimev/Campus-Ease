@@ -15,8 +15,7 @@ const ListPage = ({category, description, img}) => {
 
   const {type, setType, institution, setInstitution,
     campus, setCampus, institutions, setInstitutions,
-    campuses,
-    setCampuses} = useContext(SchoolContext);
+    campuses, setCampuses, filter_1, setFilter_1 } = useContext(SchoolContext);
 
 
   const [categoryList, setCategoryList] = useState(false)
@@ -33,6 +32,10 @@ const ListPage = ({category, description, img}) => {
     setShowFilter(false)
 };
 
+const handleFilter = (e) => {
+  e.preventDefault();
+  console.log(filter_1)
+}
 
 
   return (
@@ -70,24 +73,24 @@ const ListPage = ({category, description, img}) => {
     {categoryList &&  <div className="content">
         <div className="left">
           <button className="filter_btn" onClick={() => (
-            setShowFilter(true)
+            setShowFilter(prev => !prev)
           )}>Filter</button>
 
           {<div className={showFilter ? 'filter' : 'filter_2'}>
             {category === 'Accommodation' ? (
-              <Filter_1>
+              <Filter_1 handleFilter={handleFilter} filter_1={filter_1} setFilter_1={setFilter_1} >
                 <button>Filter</button>
               </Filter_1>
             ) : category === 'Service' ? (
-              <Filter_2>
+              <Filter_2 handleFilter={handleFilter} setFilter_1={setFilter_1}>
                 <button>Filter</button>
-              </Filter_2>
+              </Filter_2 >
             ) : category === 'Property' ? (
-              <Filter_3>
+              <Filter_3 setFilter_1={setFilter_1} handleFilter={handleFilter}>
                 <button>Filter</button>
               </Filter_3>
             ) : category === 'Roommate' ? (
-              <Filter_4>
+              <Filter_4 setFilter_1={setFilter_1} handleFilter={handleFilter}>
                 <button>Filter</button>
               </Filter_4>
             ) : null }
