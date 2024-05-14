@@ -38,6 +38,7 @@ const handleFilter = (e) => {
 }
 
 
+
   return (
     <>
       <div className="hero-category">
@@ -77,23 +78,26 @@ const handleFilter = (e) => {
           )}>Filter</button>
 
           {<div className={showFilter ? 'filter' : 'filter_2'}>
+          <form onSubmit={handleFilter}>
             {category === 'Accommodation' ? (
-              <Filter_1 handleFilter={handleFilter} filter_1={filter_1} setFilter_1={setFilter_1} >
+              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} >
                 <button>Filter</button>
               </Filter_1>
             ) : category === 'Service' ? (
-              <Filter_2 handleFilter={handleFilter} setFilter_1={setFilter_1}>
+              <Filter_2  setFilter_1={setFilter_1}>
                 <button>Filter</button>
               </Filter_2 >
             ) : category === 'Property' ? (
-              <Filter_3 setFilter_1={setFilter_1} handleFilter={handleFilter}>
+              <Filter_3 handleFilter={handleFilter}>
                 <button>Filter</button>
               </Filter_3>
             ) : category === 'Roommate' ? (
-              <Filter_4 setFilter_1={setFilter_1} handleFilter={handleFilter}>
+              <Filter_4 setFilter_1={setFilter_1} >
                 <button>Filter</button>
               </Filter_4>
             ) : null }
+            </form>
+            
           </div>}
         </div>
 

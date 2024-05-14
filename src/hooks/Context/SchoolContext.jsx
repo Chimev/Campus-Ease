@@ -10,8 +10,8 @@ const SchoolContextProvider = ({children}) => {
     const [ institutions, setInstitutions] = useState([]);
     const [campuses, setCampuses] = useState([]);
     const [filter_1, setFilter_1] = useState({
-        min: '',
-        max: '',
+        min: "",
+        max: "",
         accommodationType: "",
         service: "",
         property: "",

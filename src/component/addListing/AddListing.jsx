@@ -10,23 +10,35 @@ const AddListing = () => {
   const {type, setType, institution, setInstitution,
     campus, setCampus, institutions, setInstitutions,
     campuses,
-    setCampuses} = useContext(SchoolContext);
+    setCampuses, filter_1, setFilter_1} = useContext(SchoolContext);
 
 
-  const [category, setCategory] = useState()
+  const [addList, setAddList] = useState({
+    category: '',
+    images: null,
+  })
+const {category} = addList
 
   const changeType = (e) => {
-    setCategory(e.target.value)
+    setAddList(prev => ({
+      ...prev,
+      [e.target.name] : e.target.value
+    }))
+  }
+
+  const HandleAddList = (e) => {
+    e.preventDefault()
+    console.log({...addList, ...filter_1, type, institution, campus})
   }
 
   return (
     <div className='add-listing'>
       <hr />
         <h2>Add Listing</h2>
-        <form>
+        <form onSubmit={HandleAddList}>
             <div className='input'>
                 <p>CATEGORY</p>
-                <select name='category' value={category} onChange={changeType}>
+                <select name='category' onChange={changeType} >
                   <option value="">---</option>
                 <option value="Accommodation">Accommodation</option>
                 <option value="Service">Service</option>
@@ -42,7 +54,9 @@ const AddListing = () => {
                 type="file" 
                 accept='.jpg, .png, .jpeg'
                 multiple
-                required />
+                onChange={changeType}
+                // required
+                 />
             </div>
             <div className="input">
             <SearchInstitute 
@@ -61,16 +75,15 @@ const AddListing = () => {
             </div>
             <div className="input">
             {category === 'Accommodation' ? (
-              <Filter_1/>
+              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} />
             ) : category === 'Service' ? (
-              <Filter_2/>
+              <Filter_2  setFilter_1={setFilter_1}/>
             ) : category === 'Property' ? (
-              <Filter_3/>
+              <Filter_3 />
             ) : category === 'Roommate' ? (
-              <Filter_4/>
+              <Filter_4 setFilter_1={setFilter_1} />
             ) : null }
             </div>
-            
             <button>Add</button>
 
 
