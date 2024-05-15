@@ -42,6 +42,7 @@ nav{
             @include sm{
                 display: none;
                 margin-right: 0px;
+                padding: 13px 10px;
             }
         }
 
@@ -62,6 +63,7 @@ nav{
             align-items: center;
             gap: 6px;
 
+            
             @include sm{
                 display: none;
             }
@@ -98,12 +100,26 @@ nav{
             z-index:-2;
 
             display: flex;
+            justify-content: center;
+            gap: 5px;
             align-items: center;
 
             &.active{
                 top: 70px;
             }
             
+            .register{
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .plus{
+                background-color: blue;
+                color: var(--white);
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
 
             @include sm {
                 a {
