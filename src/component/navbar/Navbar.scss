@@ -8,7 +8,7 @@ nav{
     box-shadow: 0 0 7px grey;
     border: none;
     position: relative;
-    z-index: 0;
+    z-index: 2;
     background-color: var(--white);
 
     @include sm{
@@ -97,7 +97,7 @@ nav{
             height: 65px;
             color: white;
             transition: all 0.5s ease;
-            z-index:-2;
+            z-index:-1;
 
             display: flex;
             justify-content: center;

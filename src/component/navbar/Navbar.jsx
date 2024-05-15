@@ -45,8 +45,8 @@ const Navbar = () => {
             <div className={open ? 'menu active' : 'menu'}>
             <Link to="/" onClick={() => setOpen(prev => !prev)}>Home</Link>
             <Link to="/about" onClick={() => setOpen(prev => !prev)}>About</Link>
-            <Link  to="/profile" className='register'>{hiddenMenu ? "Profile" : <><FaSignInAlt/>Sign in</>}</Link>
-            <Link to='/add-listing' className='plus'><FaPlus /> Add</Link>
+            <Link  to="/profile" onClick={() => setOpen(prev => !prev)} className='register'>{hiddenMenu ? "Profile" : <><FaSignInAlt/>Sign in</>}</Link>
+            <Link to='/add-listing' onClick={() => setOpen(prev => !prev)} className='plus'><FaPlus /> Add</Link>
             </div>
         </div>
     </nav>
