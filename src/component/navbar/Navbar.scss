@@ -7,6 +7,13 @@ nav{
     align-items: center;
     box-shadow: 0 0 7px grey;
     border: none;
+    position: relative;
+    z-index: 0;
+    background-color: var(--white);
+
+    @include sm{
+        height: 70px;
+    }
 
     .left{
         .logo{
@@ -34,6 +41,7 @@ nav{
 
             @include sm{
                 display: none;
+                margin-right: 0px;
             }
         }
 
@@ -61,8 +69,7 @@ nav{
 
         .menuBar{
             display: none;
-            z-index: 999;
-            position: relative;
+            
 
             @include sm{
                 display: inline;
@@ -82,21 +89,19 @@ nav{
         .menu {
             background-color: rgba(255, 255, 255, 0.733);
             position: absolute;
-            top: 0;
-            right: -50%;
-            width: 50%;
-            height: 50vh;
+            top: -95%;
+            left: 0;
+            width: 100%;
+            height: 65px;
             color: white;
             transition: all 0.5s ease;
-            z-index: 800;
+            z-index:-2;
 
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
 
             &.active{
-                right: 0;
+                top: 70px;
             }
             
 
