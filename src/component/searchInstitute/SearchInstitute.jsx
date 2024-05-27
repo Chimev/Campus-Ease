@@ -21,21 +21,21 @@ const SearchInstitute = ({ type, setType, institution, setInstitution, campus, s
 
   return (
     <>
-    <select name="type" value={type} onChange={changeType}>
+    <select name="type" value={type} onChange={changeType} required>
         <option value="">--Institution-Type--</option>
         {ListOfInstitutions.map((type) => (
             <option key={type.type} value={type.type}>{type.type}</option>
         ))}
     </select>
 
-    <select name="institution" value={institution} onChange={changeInstitute}>
+    <select name="institution" value={institution} onChange={changeInstitute} required>
         <option value="">--Institution--</option>
         {institutions.map(int => (
             <option key={int.school} value={int.school}>{int.school}</option>
         ))}
     </select>
 
-    <select name="campus" value={campus} onChange={changeCampus}>
+    <select name="campus" value={campus} onChange={changeCampus} required>
         <option value="">--Campus--</option>
         {campuses.map(campus => (
             <option key={campus} value={campus}>{campus}</option>

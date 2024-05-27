@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
 const SignIn = () => {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         email: "",
@@ -26,12 +27,16 @@ const SignIn = () => {
         e.preventDefault()
 
         try {
+            console.log("first")
+            setLoading(true)
             const auth = getAuth();
             const userCredentials = await signInWithEmailAndPassword(auth, email, password)
             if(userCredentials.user){
                 navigate("/")
+                setLoading(false)
             }
         } catch (error) {
+            setLoading(false)
             console.log(error)
         }
     }
@@ -56,7 +61,7 @@ const SignIn = () => {
             : <AiFillEye onClick={() => setShowPassword(prev => !prev)}/>}
             </div>
             </div>
-            <button type='submit'>SignIn</button>
+            <button type='submit'>{loading ? "loading..." : "Sign in" }</button>
             <div>
             <p>Don't have an account yet <span onClick={() => navigate("/sign-up")} >Register</span></p>
             <p className='forgot' onClick={() => navigate("/forgot-password")}>Forgot Password?</p>

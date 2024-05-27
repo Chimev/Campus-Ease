@@ -16,6 +16,8 @@ const Navbar = () => {
         onAuthStateChanged(auth, (user) => {
             if(user){
                 setHiddenMenu(true)
+            }else{
+                setHiddenMenu(false)
             }
         })
     }, [auth])
