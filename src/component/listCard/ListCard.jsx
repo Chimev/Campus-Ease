@@ -1,17 +1,11 @@
 import React from 'react'
+import "./listCard.scss"
+import ListingPost from '../../routes/listingPost/ListingPost';
 
-const ListCard = ({list,category, img, accommodation_name, price, description, service_name, service_desciption}) => {
+const ListCard = ({listing}) => {
   return (
     <div className='list-card'>
-      <div className="img">
-        <img src={category === list.category ? list.img: null} alt="" />
-      </div>
-      {category === list.category ? category: null}
-      {accommodation_name}
-      {price}
-      {description}
-      {service_name}
-      {service_desciption} 
+      {listing.data.category}
     </div>
   )
 }

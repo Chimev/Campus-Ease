@@ -3,7 +3,7 @@ import "./Profile.scss"
 import { getAuth } from "firebase/auth"
 
 
-const link = ['saved', 'message', 'settings']
+const link = ['saved', 'message', 'settings', 'listings']
 
 const Profile = () => {
     const auth = getAuth()

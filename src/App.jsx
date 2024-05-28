@@ -12,6 +12,7 @@ import Message from "./routes/message/Message";
 import { PrivateRoutes } from "./component/PrivateRoutes";
 import ListPage from "./routes/listPage/ListPage";
 import AddListing from "./component/addListing/AddListing";
+import ListingPost from "./routes/listingPost/ListingPost";
 
 
 const router = createBrowserRouter([
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
               {
                 element: <Saved/>,
                 path: 'saved'
+              },
+              {
+                element: <ListingPost/>,
+                path: 'listings'
               }
             ]
           }

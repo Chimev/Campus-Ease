@@ -5,7 +5,6 @@ import SearchInstitute from "../../component/searchInstitute/SearchInstitute";
 import { Filter_1, Filter_2, Filter_3, Filter_4 } from "../../component/filter/Filter";
 import { useState } from "react";
 import ListCard from '../../component/listCard/ListCard';
-import { list } from "../../../data/list";
 
 
 import { SchoolContext } from "../../hooks/Context/SchoolContext";
@@ -102,16 +101,6 @@ const handleFilter = (e) => {
         </div>
 
         <div className="right">
-           {list.map((list, i) => (
-            <ListCard list={list}
-            key={i}
-            img={category}
-            category={category} 
-            // service_name={category === list.category ? list.sevice_name : null}
-            // accommodation_name={category === list.category ? list.accommodation_name : null}
-            // price={category === list.category ? list.price : null} 
-            />
-           ))}
             
   
         </div>

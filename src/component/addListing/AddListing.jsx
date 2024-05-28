@@ -111,7 +111,8 @@ const {category, images} = addList;
       institution,
       campus,
       imgUrls,
-      timestamp: serverTimestamp()
+      timestamp: serverTimestamp(),
+      userRef: auth.currentUser.uid
     }
     //conditions for database so not to show uneccesary data
     delete formData.images;
