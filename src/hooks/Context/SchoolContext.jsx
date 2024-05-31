@@ -17,7 +17,6 @@ const SchoolContextProvider = ({children}) => {
         property: "",
         level: "",
         gender: "",
-        description: ""
     })
 
     const value = {

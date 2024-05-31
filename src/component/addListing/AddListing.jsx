@@ -28,6 +28,9 @@ const AddListing = () => {
   const [addList, setAddList] = useState({
     category: '',
     images: {},
+    price: 0,
+    accommodationName: "",
+    description: "",
   })
 const {category, images} = addList;
 
@@ -117,34 +120,38 @@ const {category, images} = addList;
     //conditions for database so not to show uneccesary data
     delete formData.images;
     if(category === 'Accommodation'){
+      delete formData.min;
+      delete formData.max;
       delete formData.service;
       delete formData.property;
       delete formData.level;
       delete formData.gender;
     }
     if(category === 'Service'){
+      delete formData.accommodationName;
+      delete formData.price;
       delete formData.min;
       delete formData.max;
       delete formData.accommodationType;
-      delete formData.description;
       delete formData.property;
       delete formData.level;
       delete formData.gender;
     }
     if(category === 'Property'){
+      delete formData.accommodationName;
       delete formData.min;
       delete formData.max;
       delete formData.accommodationType;
-      delete formData.description;
       delete formData.service;
       delete formData.level;
       delete formData.gender;
     }
     if(category === 'Roommate'){
+      delete formData.accommodationName;
+      delete formData.price;
       delete formData.min;
       delete formData.max;
       delete formData.accommodationType;
-      delete formData.description;
       delete formData.service;
       delete formData.property;
     }
@@ -205,17 +212,35 @@ const {category, images} = addList;
             </div>
             <div className="input">
             {category === 'Accommodation' ? (
-              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} />
+              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} >
+                <div className="input">
+                  <label className="p-text">ACCOMMODATION NAME</label>
+                  <div className="price">
+                  <input type="text" name="accommodationName"  placeholder='Accommodation Name'  onChange={changeType} />
+                  </div>
+                 </div>
+                 <div className="input">
+                  <label className="p-text">PRICE</label>
+                  <div className="price">
+                  <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
+                  </div>
+                 </div>
+              </Filter_1>
             ) : category === 'Service' ? (
               <Filter_2  setFilter_1={setFilter_1}/>
             ) : category === 'Property' ? (
-              <Filter_3 setFilter_1={setFilter_1} />
+              <Filter_3 setFilter_1={setFilter_1} >
+                 <label className="p-text">PRICE</label>
+                 <div className="price">
+                 <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
+                 </div>
+              </Filter_3>
             ) : category === 'Roommate' ? (
               <Filter_4 setFilter_1={setFilter_1} />
             ) : null }
             </div>
             <div className="input">
-              {category === 'Accommodation' ? <textarea  name="description" rows="4" cols="50" placeholder='Describe the house by location, security, mode of utility bills payment etc...s'></textarea> : null}
+              <textarea name="description" rows="4" cols="50" placeholder='Give importnt details' onChange={changeType}></textarea>
             </div>
             <button>{add ? 'Loading...' : 'Add'}</button>
 

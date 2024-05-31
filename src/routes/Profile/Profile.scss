@@ -4,7 +4,7 @@
 .profile-container{
     display: flex;
     gap: 10px;
-    height: calc(90vh - 80px);
+    height: calc(100vh - 80px);
     padding-top: 20px;
 
     @include sm{
@@ -24,11 +24,9 @@
 
 
     .left{
-        background-color: var(--white);
-        flex: 30%;
+        flex: 1;
 
         .menu{
-            border: 1px solid white;
             display: flex;
             flex-direction: column;
             font-size: 1.2em;
@@ -48,7 +46,12 @@
 
 
     .right{
-        padding-top: 25px;
-        flex: 70%;
+        padding: 25px 10px 20px;
+        overflow-y: scroll;
+        flex: 3;
+
+        @include sm{
+            overflow-y: initial;
+        }
     }
 }

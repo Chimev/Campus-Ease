@@ -1,3 +1,4 @@
+import './listingPost.scss'
 import { collection,  getDocs, orderBy, query, where } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { db } from '../../utilities/firebase'
@@ -6,6 +7,7 @@ import ListCard from '../../component/listCard/ListCard'
 
 const ListingPost = () => {
     const [listings, setListings] = useState(null)
+    const [loading, setLoading] = useState(true)
     const auth = getAuth();
 
     // fetch the data from the firebase and querying the user
@@ -28,6 +30,7 @@ const ListingPost = () => {
             })
           });
           setListings(listings);
+          setLoading(false)
         }
         
         fetchUserListings();
@@ -37,19 +40,23 @@ console.log(listings, 'test')
 console.log(listings?.length, 'lenght')
   return (
     <>
-    <h3>My Listings</h3>
-
-    <ul>
-
-        {/* same as setting a state to wait for data maybe using a laoding function while it still getting the data(another route) */}
-        { listings && listings?.map( listing => {
-            return (
-                <ListCard listing={listing} key={listing.id} />
-            )
-        })}
-    </ul>
-
-
+      {/* same as setting a state to wait for data maybe using a laoding function while it still getting the data(another route) */}
+      {!loading && listings.length > 0 && (
+        <>
+          <h2>
+            My Listings
+          </h2>
+          <div className="list">
+            {listings.map((listing) => (
+              <ListCard
+                key={listing.id}
+                id={listing.id}
+                listing={listing.data}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </>
   )
 }

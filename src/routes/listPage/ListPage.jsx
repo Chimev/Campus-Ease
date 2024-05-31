@@ -68,8 +68,9 @@ const handleFilter = (e) => {
             </SearchInstitute>
           </form>
         </div>
-        
     </div>
+
+
     {categoryList &&  <div className="content">
         <div className="left">
           <button className="filter_btn" onClick={() => (
@@ -79,22 +80,16 @@ const handleFilter = (e) => {
           {<div className={showFilter ? 'filter' : 'filter_2'}>
           <form onSubmit={handleFilter}>
             {category === 'Accommodation' ? (
-              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} >
-                <button>Filter</button>
-              </Filter_1>
+              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} />
             ) : category === 'Service' ? (
-              <Filter_2  setFilter_1={setFilter_1}>
-                <button>Filter</button>
-              </Filter_2 >
+              <Filter_2  setFilter_1={setFilter_1} />
             ) : category === 'Property' ? (
-              <Filter_3 handleFilter={handleFilter}>
-                <button>Filter</button>
-              </Filter_3>
+              <Filter_3 handleFilter={handleFilter} />
             ) : category === 'Roommate' ? (
-              <Filter_4 setFilter_1={setFilter_1} >
-                <button>Filter</button>
-              </Filter_4>
+              <Filter_4 setFilter_1={setFilter_1} />
             ) : null }
+
+            <button>Filter</button>
             </form>
             
           </div>}
