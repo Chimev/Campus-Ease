@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Navbar.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { FaPlus } from "react-icons/fa";
 import { FaSignInAlt } from "react-icons/fa";
+import { ListingContext } from '../../hooks/Context/ListingContext'
 
 
 const Navbar = () => {
@@ -31,6 +32,7 @@ const Navbar = () => {
             <div className="logo" onClick={() => navigate("/")}>
                 <img src="./logo.png" alt="" />
                 <span>campusEase</span>
+                
             </div>
         </div>
 

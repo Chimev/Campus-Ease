@@ -1,6 +1,6 @@
 import './listingPost.scss'
 import { collection,  getDocs, orderBy, query, where, deleteDoc, doc} from 'firebase/firestore'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { db } from '../../utilities/firebase'
 import { getAuth } from 'firebase/auth'
 import ListCard from '../../component/listCard/ListCard'
@@ -39,6 +39,7 @@ const ListingPost = () => {
       }, []);
    
       async function onDelete(listingID) {
+        
         if (window.confirm("Are you sure you want to delete?")) {
           await deleteDoc(doc(db, "listings", listingID));
 

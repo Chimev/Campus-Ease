@@ -34,6 +34,8 @@ const AddListing = () => {
     price: 0,
     accommodationName: "",
     description: "",
+    roommateName: "",
+    phoneNo: "",
   })
 const {category, images} = addList;
 
@@ -129,6 +131,7 @@ const {category, images} = addList;
       delete formData.property;
       delete formData.level;
       delete formData.gender;
+      delete formData.roommateName;
     }
     if(category === 'Service'){
       delete formData.accommodationName;
@@ -139,6 +142,7 @@ const {category, images} = addList;
       delete formData.property;
       delete formData.level;
       delete formData.gender;
+      delete formData.roommateName;
     }
     if(category === 'Property'){
       delete formData.accommodationName;
@@ -148,6 +152,7 @@ const {category, images} = addList;
       delete formData.service;
       delete formData.level;
       delete formData.gender;
+      delete formData.roommateName;
     }
     if(category === 'Roommate'){
       delete formData.accommodationName;
@@ -165,7 +170,9 @@ const {category, images} = addList;
     //Add a success message
 
     toast.success("Uploaded Successfully !")
-    navigate('/')
+    setTimeout(() => {
+      navigate('/profile/listings')
+    }, 2000);
     //ill redirect to my listings
     // navigate(`/category/${formData.category}/${docRef.id}`)
   }
@@ -229,18 +236,52 @@ const {category, images} = addList;
                   <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
                   </div>
                  </div>
+                 <div className="input">
+                  <label className="p-text">phone</label>
+                  <div className="price">
+                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  </div>
+                 </div>
               </Filter_1>
             ) : category === 'Service' ? (
-              <Filter_2  setFilter_1={setFilter_1}/>
+              <Filter_2  setFilter_1={setFilter_1}>
+                <div className="input">
+                  <label className="p-text">phone</label>
+                  <div className="price">
+                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  </div>
+                 </div>
+              </Filter_2>
             ) : category === 'Property' ? (
               <Filter_3 setFilter_1={setFilter_1} >
-                 <label className="p-text">PRICE</label>
-                 <div className="price">
-                 <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
+                 <div className="input">
+                  <label className="p-text">PRICE</label>
+                  <div className="price">
+                  <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
+                  </div>
+                  <div className="input">
+                  <label className="p-text">phone</label>
+                  <div className="price">
+                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  </div>
+                 </div>
                  </div>
               </Filter_3>
             ) : category === 'Roommate' ? (
-              <Filter_4 setFilter_1={setFilter_1} />
+              <Filter_4 setFilter_1={setFilter_1}>
+                <div className="input">
+                  <label className="p-text">Name</label>
+                  <div className="price">
+                  <input type="text" name="roommateName"  placeholder='Your Name'  onChange={changeType} />
+                  </div>
+                 </div>
+                 <div className="input">
+                  <label className="p-text">phone</label>
+                  <div className="price">
+                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  </div>
+                 </div>
+              </Filter_4>
             ) : null }
             </div>
             <div className="input">

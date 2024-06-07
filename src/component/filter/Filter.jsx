@@ -38,7 +38,7 @@ export const Filter_1 = ({children, setFilter_1}) => {
   )
 }
 
-export const Filter_2 = ({ setFilter_1}) => {
+export const Filter_2 = ({ children, setFilter_1}) => {
     const onChange = (e) => {
         setFilter_1(prev => ({
                 ...prev,
@@ -47,6 +47,7 @@ export const Filter_2 = ({ setFilter_1}) => {
     }
     return (
       <>
+        {children}
         <div className="input">
             <label className="p-text">SERVICE TYPE</label>
             <select name="service" onChange={onChange} >
@@ -84,7 +85,7 @@ return (
 )
 }
 
-export const Filter_4 = ({ setFilter_1}) => {
+export const Filter_4 = ({ setFilter_1, children}) => {
     const onChange = (e) => {
         setFilter_1(prev => ({
                 ...prev,
@@ -95,6 +96,7 @@ export const Filter_4 = ({ setFilter_1}) => {
 return (
     <>
     <div className="input">
+        {children}
         <label className="p-text">LEVEL</label>
         <select name="level" onChange={onChange}>
             <option>---</option>
