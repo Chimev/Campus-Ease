@@ -1,8 +1,30 @@
 .list-card{
-    border: 1px solid red;
+    list-style: none;
     height: fit-content;
     position: relative;
-    border: 1px solid var(--orange);
+
+    .wrapper{
+        width: 85%;
+        margin: auto;
+    }
+
+    .edit{
+        position: absolute;
+        top: 290px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        color: var(--orange);
+    }
+
+    .price{
+        display: inline-flex;
+        align-items: center;
+        .naira{
+            font-size: 1.2em;
+        }
+    }
 
     
     
@@ -11,6 +33,9 @@
         height: 270px;
     }
 
+    .delete{
+        font-size: 1.2em;
+    }
     .time{
         color: white;
         position: absolute;
@@ -22,7 +47,7 @@
     }
 
     .info{
-        padding: 0.6em 1em;
+        padding: 0.6em 0;
 
        
         p{

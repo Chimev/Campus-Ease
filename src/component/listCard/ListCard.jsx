@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./listCard.scss"
 
 import { Link } from 'react-router-dom';
 import Moment from "react-moment";
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
+import { TbCurrencyNaira } from "react-icons/tb";
 
-const ListCard = ({listing, id}) => {
+const ListCard = ({listing, id, onDelete, onEdit}) => {
+  const [profile, setProfile] = useState(true)
   return (
     <li className='list-card'> 
-          <img src={listing.imgUrls[0]} alt="" />
+         <div className="wrapper">
+         <img src={listing.imgUrls[0]} alt="" />
         
     
         <Moment fromNow className='time'>
@@ -24,7 +29,7 @@ const ListCard = ({listing, id}) => {
           
           {listing.category === 'Accommodation' 
           ? <>
-          <p><span>Price: </span>{listing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+          <p className='price'><span>Price: </span><TbCurrencyNaira className='naira' />{listing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
           <p><span>Type: </span>{listing.accommodationType}</p>
           </> : ''
           }
@@ -36,6 +41,7 @@ const ListCard = ({listing, id}) => {
           {listing.category === 'Property' 
           ? <>
           <p><span>Property: </span>{listing.property}</p>
+          <p className='price'><span>Price: </span><TbCurrencyNaira className='naira' />{listing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
           </> : ''
           }
           {listing.category === 'Roommate' 
@@ -47,6 +53,15 @@ const ListCard = ({listing, id}) => {
           <p><span>Description: </span>{listing.description}</p>
           
         </div>
+        {
+          profile && 
+          <div className="edit">
+            {/* <MdEdit onClick={() => onEdit(listing.id)} /> */}
+            <MdDelete className='delete' onClick={() => onDelete(listing.id)} />
+          </div>  
+        }
+         </div>
+        
       </li>
   )
 }
