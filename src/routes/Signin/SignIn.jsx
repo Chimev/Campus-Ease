@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Sign.scss"
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
 
@@ -32,10 +34,14 @@ const SignIn = () => {
             const auth = getAuth();
             const userCredentials = await signInWithEmailAndPassword(auth, email, password)
             if(userCredentials.user){
-                navigate("/")
+                toast.success("Success Notification !");
+                setTimeout(() => {
+                    navigate("/")
+                }, 2000);
                 setLoading(false)
             }
         } catch (error) {
+            toast.error("Error!");
             setLoading(false)
             console.log(error)
         }
@@ -67,7 +73,7 @@ const SignIn = () => {
             <p className='forgot' onClick={() => navigate("/forgot-password")}>Forgot Password?</p>
             </div>
         </form>
-        
+        <ToastContainer />
     </section>
   )
 }

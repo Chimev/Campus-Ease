@@ -5,6 +5,8 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { db } from "../../utilities/firebase"
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
 
@@ -54,8 +56,12 @@ const SignUp = () => {
 
             //Saving in DataBase
             await setDoc(doc(db, "users", user.uid), formDataCopy)
-            navigate("/")
+            toast.success("Success Notification !");
+            setTimeout(() => {
+                navigate("/")
+            }, 2000);
         } catch (error) {
+            toast.error("Error!");
             console.log(error)
         }
     }
@@ -93,7 +99,7 @@ const SignUp = () => {
             <p>Already have an account? <span onClick={() => navigate("/sign-in")} >Sign In </span></p>
             </div>
         </form>
-        
+        <ToastContainer />
     </section>
   )
 }

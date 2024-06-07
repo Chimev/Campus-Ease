@@ -46,7 +46,7 @@ console.log(listings?.length, 'lenght')
           <h2>
             My Listings
           </h2>
-          <div className="list">
+          <ul className="list">
             {listings.map((listing) => (
               <ListCard
                 key={listing.id}
@@ -54,7 +54,7 @@ console.log(listings?.length, 'lenght')
                 listing={listing.data}
               />
             ))}
-          </div>
+          </ul>
         </>
       )}
     </>

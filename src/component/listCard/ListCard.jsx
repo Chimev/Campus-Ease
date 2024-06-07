@@ -6,10 +6,9 @@ import Moment from "react-moment";
 
 const ListCard = ({listing, id}) => {
   return (
-    <div className='list-card'> 
-        <div className="img">
+    <li className='list-card'> 
           <img src={listing.imgUrls[0]} alt="" />
-        </div>
+        
     
         <Moment fromNow className='time'>
           {listing.timestamp?.toDate()}
@@ -17,13 +16,16 @@ const ListCard = ({listing, id}) => {
 
         <div className='info'>
           <p className='category'>{listing.category}</p>
+          <div className="school">
           <p><span>Institution Type: </span>{listing.type}</p>
           <p><span>School: </span>{listing.institution}</p>
           <p><span>Campus: </span>{listing.campus}</p>
+          </div>
+          
           {listing.category === 'Accommodation' 
           ? <>
-          <p><span>Price: </span>{listing.price}</p>
-          <p><span>Accommodation Type: </span>{listing.accommodationType}</p>
+          <p><span>Price: </span>{listing.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+          <p><span>Type: </span>{listing.accommodationType}</p>
           </> : ''
           }
           {listing.category === 'Service' 
@@ -42,9 +44,10 @@ const ListCard = ({listing, id}) => {
           <p><span>Level: </span>{listing.level}</p>
           </> : ''
           }
+          <p><span>Description: </span>{listing.description}</p>
           
         </div>
-      </div>
+      </li>
   )
 }
 

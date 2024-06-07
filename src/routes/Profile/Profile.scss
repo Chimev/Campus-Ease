@@ -3,7 +3,7 @@
 
 .profile-container{
     display: flex;
-    gap: 10px;
+    gap: 5px;
     height: calc(100vh - 80px);
     padding-top: 20px;
 
@@ -34,13 +34,25 @@
 
             padding: 20px 20px;
 
-            div{
-                font-size: 0.9em;
-                padding: 5px 10px ;
+            @include sm{
+                flex-direction: row;
+                font-size: 1.1em;
+                align-items: center;
+            }
+
+            .sign-out{
+                color: white;
+                font-size: .9em;
+                padding: 3px 6px ;
+                height: fit-content;
                 background-color: var(--orange);
                 width: fit-content;
                 cursor: pointer;
             }
+        }
+
+        @include sm{
+            border-bottom: 1px solid #8080801f;
         }
     }
 
@@ -48,7 +60,7 @@
     .right{
         padding: 25px 10px 20px;
         overflow-y: scroll;
-        flex: 3;
+        flex: 7;
 
         @include sm{
             overflow-y: initial;

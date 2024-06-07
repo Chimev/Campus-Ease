@@ -13,6 +13,9 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../utilities/firebase';
 import { useNavigate } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddListing = () => {
   const auth = getAuth()
@@ -161,7 +164,8 @@ const {category, images} = addList;
     setAdd(false);
     //Add a success message
 
-    //trying this
+    toast.success("Uploaded Successfully !")
+    navigate('/')
     //ill redirect to my listings
     // navigate(`/category/${formData.category}/${docRef.id}`)
   }
@@ -243,9 +247,8 @@ const {category, images} = addList;
               <textarea name="description" rows="4" cols="50" placeholder='Give importnt details' onChange={changeType}></textarea>
             </div>
             <button>{add ? 'Loading...' : 'Add'}</button>
-
-
         </form>
+        <ToastContainer />
     </div>
   )
 }

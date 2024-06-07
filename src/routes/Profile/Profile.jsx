@@ -17,7 +17,7 @@ const Profile = () => {
         <div className="left">
             <div className="menu">
                 {link.map(links => <NavLink to={`/profile/${links}`} key={links} >{links}</NavLink>)}
-                <div onClick={onLogout}>Sign Out</div>
+                <div className="sign-out" onClick={onLogout}>Sign Out</div>
             </div>
         </div>
 
