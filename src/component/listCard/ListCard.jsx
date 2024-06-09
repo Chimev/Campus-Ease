@@ -49,7 +49,7 @@ const ListCard = ({listing, id, onDelete, onEdit}) => {
           }
           {listing.category === 'Roommate' 
           ? <>
-          <p className='name'><span>Name: </span>{listing.accommodationName}</p>
+          <p className='name'><span>Name: </span>{listing.roommateName}</p>
           <p><span>Gender: </span>{listing.gender}</p>
           <p><span>Level: </span>{listing.level}</p>
           </> : ''

@@ -1,7 +1,7 @@
 import { ListOfInstitutions } from "../../../data/school";
 
 
-const SearchInstitute = ({ type, setType, institution, setInstitution, campus, setCampus, institutions, setInstitutions, campuses, setCampuses, children }) => {
+const SearchInstitute = ({ type, setType, institution, setInstitution, campus, setCampus, institutions, setInstitutions, campuses, setCampuses, children, disabled }) => {
     
 
     const changeType = (e) => {
@@ -21,21 +21,21 @@ const SearchInstitute = ({ type, setType, institution, setInstitution, campus, s
 
   return (
     <>
-    <select name="type" value={type} onChange={changeType} required>
+    <select name="type" value={type} onChange={changeType} disabled={disabled} required>
         <option value="">--Institution-Type--</option>
         {ListOfInstitutions.map((type) => (
             <option key={type.type} value={type.type}>{type.type}</option>
         ))}
     </select>
 
-    <select name="institution" value={institution} onChange={changeInstitute} required>
+    <select name="institution" value={institution} onChange={changeInstitute} disabled={disabled} required>
         <option value="">--Institution--</option>
         {institutions.map(int => (
             <option key={int.school} value={int.school}>{int.school}</option>
         ))}
     </select>
 
-    <select name="campus" value={campus} onChange={changeCampus} required>
+    <select name="campus" value={campus} onChange={changeCampus} disabled={disabled} required>
         <option value="">--Campus--</option>
         {campuses.map(campus => (
             <option key={campus} value={campus}>{campus}</option>

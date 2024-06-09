@@ -22,6 +22,7 @@ const AddListing = () => {
   const navigate = useNavigate()
   const [add, setAdd] = useState(false)
   const[errorMessage, setErrorMessage] = useState(false)
+  const [disabled, setDisabled] = useState(false)
   const {type, setType, institution, setInstitution,
     campus, setCampus, institutions, setInstitutions,
     campuses,
@@ -57,6 +58,7 @@ const {category, images} = addList;
   const HandleAddList = async (e) => {
     e.preventDefault()
     setAdd(true)
+    setDisabled(true)
     if(images.length < 2 && images.length > 5){
       setAdd(false)
       setErrorMessage(true)
@@ -184,7 +186,7 @@ const {category, images} = addList;
         <form onSubmit={HandleAddList}>
             <div className='input'>
                 <p>CATEGORY</p>
-                <select name='category' onChange={changeType} >
+                <select name='category' onChange={changeType} disabled={disabled} >
                   <option value="">---</option>
                 <option value="Accommodation">Accommodation</option>
                 <option value="Service">Service</option>
@@ -201,6 +203,7 @@ const {category, images} = addList;
                 accept='.jpg, .png, .jpeg'
                 multiple
                 onChange={changeType}
+                disabled={disabled}
                 required
                  />
                  <div className="error">{errorMessage ? "Images should be more than 2 and less than 5" : null}</div>
@@ -219,74 +222,75 @@ const {category, images} = addList;
             setCampus={setCampus}
             campuses={campuses}
             setCampuses={setCampuses}
+            disabled={disabled}
             />
             </div>
             <div className="input">
             {category === 'Accommodation' ? (
-              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} >
+              <Filter_1  filter_1={filter_1} setFilter_1={setFilter_1} disabled={disabled} >
                 <div className="input">
                   <label className="p-text">ACCOMMODATION NAME</label>
                   <div className="price">
-                  <input type="text" name="accommodationName"  placeholder='Accommodation Name'  onChange={changeType} />
+                  <input type="text" name="accommodationName"  placeholder='Accommodation Name'  onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
                  <div className="input">
                   <label className="p-text">PRICE</label>
                   <div className="price">
-                  <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
+                  <input type="number" name="price"  placeholder='Price'  onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
                  <div className="input">
                   <label className="p-text">phone</label>
                   <div className="price">
-                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  <input type="number" name="phoneNo" onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
               </Filter_1>
             ) : category === 'Service' ? (
-              <Filter_2  setFilter_1={setFilter_1}>
+              <Filter_2  setFilter_1={setFilter_1} disabled={disabled}>
                 <div className="input">
                   <label className="p-text">phone</label>
                   <div className="price">
-                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  <input type="number" name="phoneNo" onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
               </Filter_2>
             ) : category === 'Property' ? (
-              <Filter_3 setFilter_1={setFilter_1} >
+              <Filter_3 setFilter_1={setFilter_1}  disabled={disabled}>
                  <div className="input">
                   <label className="p-text">PRICE</label>
                   <div className="price">
-                  <input type="number" name="price"  placeholder='Price'  onChange={changeType} />
+                  <input type="number" name="price"  placeholder='Price' onChange={changeType} disabled={disabled} />
                   </div>
                   <div className="input">
                   <label className="p-text">phone</label>
                   <div className="price">
-                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  <input type="number" name="phoneNo" onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
                  </div>
               </Filter_3>
             ) : category === 'Roommate' ? (
-              <Filter_4 setFilter_1={setFilter_1}>
+              <Filter_4 setFilter_1={setFilter_1} disabled={disabled}>
                 <div className="input">
                   <label className="p-text">Name</label>
                   <div className="price">
-                  <input type="text" name="roommateName"  placeholder='Your Name'  onChange={changeType} />
+                  <input type="text" name="roommateName"  placeholder='Your Name' onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
                  <div className="input">
                   <label className="p-text">phone</label>
                   <div className="price">
-                  <input type="number" name="phoneNo"   onChange={changeType} />
+                  <input type="number" name="phoneNo"  onChange={changeType} disabled={disabled} />
                   </div>
                  </div>
               </Filter_4>
             ) : null }
             </div>
-            <div className="input">
-              <textarea name="description" rows="4" cols="50" placeholder='Give importnt details' onChange={changeType}></textarea>
-            </div>
+            {category !== 'Service' ? <div className="input">
+              <textarea name="description" rows="4" cols="50" placeholder='Give importnt details' onChange={changeType} disabled={disabled}></textarea>
+            </div>: ""}
             <button>{add ? 'Loading...' : 'Add'}</button>
         </form>
         <ToastContainer />

@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import './Navbar.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { FaPlus } from "react-icons/fa";
 import { FaSignInAlt } from "react-icons/fa";
-import { ListingContext } from '../../hooks/Context/ListingContext'
 
 
 const Navbar = () => {
