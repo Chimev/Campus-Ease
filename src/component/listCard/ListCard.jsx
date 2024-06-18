@@ -8,8 +8,7 @@ import { MdEdit } from "react-icons/md";
 import { TbCurrencyNaira } from "react-icons/tb";
 import { FaPhoneAlt } from "react-icons/fa";
 
-const ListCard = ({listing, id, onDelete, onEdit}) => {
-  const [profile, setProfile] = useState(true)
+const ListCard = ({listing, id, onDelete, onEdit, profile}) => {
   return (
     <li className='list-card'> 
          <div className="wrapper">

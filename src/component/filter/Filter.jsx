@@ -2,7 +2,6 @@
 export const Filter_1 = ({children, setFilter_1, disabled}) => {
     
     const onChange = (e) => {
-        //JHGJH
         setFilter_1(prev => ({
                 ...prev,
                 [e.target.name] : e.target.value
@@ -26,10 +25,10 @@ export const Filter_1 = ({children, setFilter_1, disabled}) => {
         <label className="p-text">ACCOMMODATION TYPE</label>
         <select name="accommodationType"  onChange={onChange} disabled={disabled}>
         <option>---</option>
-            <option value="4 Bedroom ">4 Bedroom </option>
-            <option value="3 Bedroom ">3 Bedroom </option>
-            <option value="2 Bedroom ">2 Bedroom </option>
-            <option value="1 Bedroom ">1 Bedroom </option>
+            <option value="4 Bedroom">4 Bedroom </option>
+            <option value="3 Bedroom">3 Bedroom </option>
+            <option value="2 Bedroom">2 Bedroom </option>
+            <option value="1 Bedroom">1 Bedroom </option>
             <option value="Self Contain">Self Contain</option>
             <option value="1 Room">1 Room</option>
         </select>
@@ -51,7 +50,7 @@ export const Filter_2 = ({ children, setFilter_1, disabled}) => {
         <div className="input">
             <label className="p-text">SERVICE TYPE</label>
             <select name="service" onChange={onChange} disabled={disabled} >
-                <option>---</option>
+                <option value={null}>---</option>
                 <option value="Barber">Barber</option>
                 <option value="Painter">Painter</option>
                 <option value="Hairdresser">Hairdresser</option>

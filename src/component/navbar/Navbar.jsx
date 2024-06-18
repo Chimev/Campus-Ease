@@ -8,8 +8,9 @@ import { FaSignInAlt } from "react-icons/fa";
 
 
 const Navbar = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [hiddenMenu, setHiddenMenu] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const auth = getAuth();
     useEffect(() => {
@@ -24,7 +25,7 @@ const Navbar = () => {
     
 
 
-    const [open, setOpen] = useState(false)
+    
   return (
     <nav className='p24'>
         <div className="left">

@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const ListingPost = () => {
     const [listings, setListings] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [profile, setProfile] = useState(true)
     const auth = getAuth();
 
     // fetch the data from the firebase and querying the user
@@ -39,7 +40,6 @@ const ListingPost = () => {
       }, []);
    
       async function onDelete(listingID) {
-        
         if (window.confirm("Are you sure you want to delete?")) {
           await deleteDoc(doc(db, "listings", listingID));
 
@@ -75,6 +75,7 @@ console.log(listings?.length, 'lenght')
                 listing={listing.data}
                 onDelete={() => onDelete(listing.id)}
                 // onEdit={() => onEdit(listing.id)}
+                profile ={profile}
               />
             ))}
           </ul>

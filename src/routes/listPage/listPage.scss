@@ -122,6 +122,10 @@
         .filter{
             height: 70vh;
 
+            @include sm{
+                height: fit-content;
+            }
+
             button{
                 padding: 10px 30px;
                 font-size: 1.2em;
@@ -149,6 +153,10 @@
                     font-size: 1.1em;
                     gap: 5px;
 
+                    @include sm{
+                        margin-bottom: 10px;
+                    }
+
                     .price{
                         display: flex;
                         gap: 5px;
@@ -173,11 +181,13 @@
     }
     .right{
         flex: 3;
-        background-color: red;
         color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        .error{
+            color: black;
+        }
     }
 }
 
