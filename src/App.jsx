@@ -41,19 +41,19 @@ const router = createBrowserRouter([
         path: '/forgot-password'
       },
       {
-        element : <ListPage category={'Accommodation'} description={'Find Accomodation around campus'} img={"./Accomodation.jpg"}/>,
+        element : <ListPage category={'Accommodation'} description={'Find Accomodation around campus'} img={"https://firebasestorage.googleapis.com/v0/b/campusease-4d7fb.appspot.com/o/Website%20Images%2FAccomodation.jpg?alt=media&token=41a56b69-ab46-4eb8-8ce3-081b3eb3ca9e"}/>,
         path: '/accomodation'
       },
       {
-        element :  <ListPage category={'Service'} description={'Find Service provider around campus'} img={"./Service.png"}/>,
+        element :  <ListPage category={'Service'} description={'Find Service provider around campus'} img={"https://firebasestorage.googleapis.com/v0/b/campusease-4d7fb.appspot.com/o/Website%20Images%2FService.png?alt=media&token=570bb5b3-46ee-4d05-8b50-662fa02e581e"}/>,
         path: '/service'
       },
       {
-        element :  <ListPage category={'Property'} description={'Buy/Sell/Swap properties within campus'} img={"./Trade.jpg"}/>,
+        element :  <ListPage category={'Property'} description={'Buy/Sell/Swap properties within campus'} img={"https://firebasestorage.googleapis.com/v0/b/campusease-4d7fb.appspot.com/o/Website%20Images%2FTrade.jpg?alt=media&token=302d5ae4-8a11-4e8c-a011-9823e43de075"}/>,
         path: '/property'
       },
       {
-        element :  <ListPage category={'Roommate'} description={'Find roommate within campus'} img={"./Roommate.jpg"}/>,
+        element :  <ListPage category={'Roommate'} description={'Find roommate within campus'} img={"https://firebasestorage.googleapis.com/v0/b/campusease-4d7fb.appspot.com/o/Website%20Images%2FRoommate.jpg?alt=media&token=467d8e94-50d7-4318-b6e2-b6a90e40419b"}/>,
         path: '/roommate'
       },//check
       {

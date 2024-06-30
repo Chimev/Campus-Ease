@@ -31,12 +31,16 @@ nav{
     }
 
     .right{
-        font-size: 1.2em;
+        font-size: 1.4em;
 
         a{
             margin-right: 10px;
             padding: 13px 18px;
             color: var(--grey);
+
+            &:hover{
+                color: var(--orange);
+            }
 
 
             @include sm{
