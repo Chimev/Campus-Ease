@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         path: '/property'
       },
       {
-        element :  <ListPage category={'Roommate'} description={'Find roommate within campus'} img={"https://firebasestorage.googleapis.com/v0/b/campusease-4d7fb.appspot.com/o/Website%20Images%2FRoommate.jpg?alt=media&token=467d8e94-50d7-4318-b6e2-b6a90e40419b"}/>,
+        element :  <ListPage category={'Roommate'} description={'Find roommates within campus'} img={"https://firebasestorage.googleapis.com/v0/b/campusease-4d7fb.appspot.com/o/Website%20Images%2FRoommate.jpg?alt=media&token=467d8e94-50d7-4318-b6e2-b6a90e40419b"}/>,
         path: '/roommate'
       },//check
       {

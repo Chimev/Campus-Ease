@@ -22,8 +22,8 @@ const Homepage = () => {
                 <div className="categories">
                 <Link to={'/accomodation'}><CategoryCard category={"Accommodation"} description={"Find Accomodation around campus"} img={"./Accomodation.jpg"}/></Link>
                 <Link to={'/service'}><CategoryCard category={"Service"} description={"Find Service provider around campus"} img={"./Service.png"}/></Link>
-                <Link to={'/property'}><CategoryCard category={"Property"} description={"buy/Sell/Swap properties within campus"} img={"./Trade.jpg"}/></Link>
-                <Link to={'/roommate'}><CategoryCard category={"Roommate"} description={"Find roommate within campus"} img={"./Roommate.jpg"}/></Link>
+                <Link to={'/property'}><CategoryCard category={"Property"} description={"Buy/Sell/Swap properties within campus"} img={"./Trade.jpg"}/></Link>
+                <Link to={'/roommate'}><CategoryCard category={"Roommates"} description={"Find roommates within campus"} img={"./Roommate.jpg"}/></Link>
                 </div>
             </div>
         </div>
